@@ -12,3 +12,15 @@ text_task2 = "Однажды я вырастил на грядке большу�
 result_rediska = re.sub(r'редиск\w+', "*давайте жить дружно*", text_task2)
 result_task2 = re.sub(r'нехорош\w+\s+челов\w+', "*давайте жить дружно*", result_rediska)
 print(result_task2)
+
+#Task 3
+text_date = "01-02-2024, 30.11.02 2/2/23, 31.7.324, asdw, asda2, 2as, asd2, saa2345, 23-24-526, 23.12.2024, 02-11.23, 32.11.12, 31.13.2024"
+date_pattern  = r'\b(?:0?[1-9]|[12]\d|3[01])\b\.\b(?:0?[1-9]|1[0-2])\b\.\b(?:\d{2}|\d{4})\b'
+# replace_pattern = r'[-/]'
+# replace_result = re.sub(replace_pattern, ".", text_date)
+findall_result = re.findall(date_pattern, text_date)
+for i in findall_result:
+    print(i)
+
+#Task 4
+
