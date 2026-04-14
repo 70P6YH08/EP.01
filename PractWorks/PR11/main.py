@@ -1,4 +1,5 @@
 import re
+from re import split
 
 #Task 1
 text = "Как же это бесит, когда кто-то... Лезет с хамством и злобой? Сердце разрывается от несправедливости. Но хватит! Пусть все эти редиски и нехорошие люди исчезнут!! Хочется наконец тепла и улыбок??? Давайте жить дружно — вот единственное спасение от всей этой дурацкой злости."
@@ -22,5 +23,17 @@ findall_result = re.findall(date_pattern, text_date)
 for i in findall_result:
     print(i)
 
+print("")
+
 #Task 4
+
+password = input("")
+password_pattern = r'\b(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d\W]{6,}\b'
+
+while True:
+    if re.search(password_pattern, password):
+        print(f"Успешно: {password}")
+        break
+    else:
+        password = input("Повторно введите пароль: ")
 
