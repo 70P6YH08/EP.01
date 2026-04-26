@@ -4,56 +4,52 @@ from tkinter import ttk
 root = Tk()
 
 root.title("Форма регистрации")
-
 root.geometry('200x350')
 root.configure(bg='lightblue')
 
-loglbl = Label(root, text = "Логин", background="lightgray")
-passlbl = Label(root, text = "Пароль", background="lightgray")
-aboutme = Label(root, text = "О себе", background="lightgray")
 
-languages = ["Сервеная Америка",
-             "Южная Америка",
-             "Евразия",
-             "Африка",
-             "Австралия"]
-languages_var = Variable(value=languages)
+loglbl = Label(root, text = "Логин", background="green")
+passlbl = Label(root, text = "Пароль", background="green")
 
-languages_listbox = Listbox(listvariable=languages_var, height=5, bg="blue")
+logtxt = Entry(root)
+passtxt = Entry(root)
 
-btn = ttk.Button(text="Зарегистрироваться")
-
-
-loglbl.grid()
-passlbl.grid()
-aboutme.grid()
-
-txt = Entry(root, width=10)
-txt.grid(column =1, row =0)
-
-txt = Entry(root, width=10)
-txt.grid(column =1, row =1)
-
-editor = Text(height= 5, width=25)
-editor.grid(column =0, row =3, columnspan = 2)
-
-languages_listbox.grid(column =0, row =7)
-
-btn.grid(column =0, row =8)
-
+aboutme = Label(root, text = "О себе", background="green")
+editor = Text(height=5, width=25)
 
 man = "Муж"
 woman = "Жен"
+gender = StringVar(value=man)
+header = Label(textvariable=gender, background="green")
+men_btn = Radiobutton(text=man, value=man, variable=gender, background="lightblue")
+women_btn = Radiobutton(text=woman, value=woman, variable=gender, background="lightblue")
 
-sex = StringVar(value=man)
+languages = ["Сервеная Америка","Южная Америка","Евразия","Африка","Австралия"]
+languages_var = Variable(value=languages)
+languages_listbox = Listbox(listvariable=languages_var, height=5, bg="yellow")
 
-header = ttk.Label(textvariable=sex, background="lightgray")
-header.grid(row = 4)
+btn = Button(text="Зарегистрироваться", background="green")
 
-python_btn = ttk.Radiobutton(text=man, value=man, variable=sex)
-python_btn.grid(row = 5)
 
-python_btn = ttk.Radiobutton(text=woman, value=woman, variable=sex)
-python_btn.grid(row = 6)
+
+loglbl.grid(column =0, row =0)
+passlbl.grid(column =0, row =1)
+
+logtxt.grid(column =1, row =0)
+passtxt.grid(column =1, row =1)
+
+root.columnconfigure(0, weight=1)
+root.columnconfigure(1, weight=1)
+
+aboutme.grid(columnspan=2, row =3)
+editor.grid(column =0, row =4, columnspan = 2)
+
+header.grid(row = 5, columnspan=2)
+men_btn.grid(row = 6, columnspan=2)
+women_btn.grid(row = 7, columnspan=2)
+
+languages_listbox.grid(columnspan=2, row =8)
+
+btn.grid(column =0, row =9, columnspan=2)
 
 root.mainloop()
